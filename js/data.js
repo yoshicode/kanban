@@ -18,12 +18,22 @@ webix.ready(function(){
         css: "shadow",
         type:"space",
         borderless: true,
+        on:{
+						onListBeforeDrag: onBeforeDrag,
+						onListBeforeDragIn: onBeforeDragIn,
+						onListAfterDrop: onAfterDrop
+				},
         cols:[
 
           {
             view:"kanban",
             id: "myBoard",
             type: "wide",
+            on:{
+      						onListBeforeDrag: onBeforeDrag,
+      						onListBeforeDragIn: onBeforeDragIn,
+      						onListAfterDrop: onAfterDrop
+      			},
             cols:[
               { header:"バックログ",
                 body:{ view:"kanbanlist", status:"new", type: "avatars"}},
@@ -72,7 +82,6 @@ webix.ready(function(){
   });
   $$("myForm").bind($$("myBoard"));
 });
-
 
 var base_task_set =[
 	{ id:1, status:"new", text:"Task 1", tags:"webix,docs", comments:[{text:"Comment 1"}, {text:"Comment 2"}] },
