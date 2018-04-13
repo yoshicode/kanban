@@ -9,7 +9,7 @@ webix.ready(function(){
         paddingX:10,
         margin: 7,
         cols:[
-          { view: "label", label: "タスクの追加・削除ができます。"},
+          {view: "label", label: "タスクの追加・削除ができます。"},
           {view: "button", type: "danger", label: "選択中を削除", click: remove, width: 150},
           {view: "button", type: "form",  label: "新規追加", click: add, width: 150}
         ]
@@ -18,22 +18,12 @@ webix.ready(function(){
         css: "shadow",
         type:"space",
         borderless: true,
-        on:{
-						onListBeforeDrag: onBeforeDrag,
-						onListBeforeDragIn: onBeforeDragIn,
-						onListAfterDrop: onAfterDrop
-				},
         cols:[
 
           {
             view:"kanban",
             id: "myBoard",
             type: "wide",
-            on:{
-      						onListBeforeDrag: onBeforeDrag,
-      						onListBeforeDragIn: onBeforeDragIn,
-      						onListAfterDrop: onAfterDrop
-      			},
             cols:[
               { header:"バックログ",
                 body:{ view:"kanbanlist", status:"new", type: "avatars"}},
